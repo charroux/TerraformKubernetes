@@ -13,6 +13,8 @@ This project addresses a SAS feature and especially Kubernetes.
 This project requires a local installation of Kubernetes. For testing purpose MiniKube is an easy to use implementation: 
 https://github.com/charroux/kubernetes-minikube
 
+Start the Minikube cluster with: minikube start
+
 ## Installing Terraform
 
 https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started
@@ -27,7 +29,7 @@ Lets have a look at a Kubernetes configuration file: https://github.com/charroux
 
 A detailled version of this configuration is given at: https://github.com/charroux/CodingWithKubernetes
 
-### Kubernetes throwgh Terraform
+### Kubernetes through Terraform
 
 The same Kubernetes deployment can be achieved using Terraform: https://github.com/charroux/TerraformKubernetes/blob/master/main.tf
 
@@ -37,3 +39,25 @@ provider "kubernetes" {
   config_path = "~/.kube/config"
 }
 ```
+Where config_path must point to a local installation of Kubernetes.
+
+Initialiaze Terraform with 
+```
+terraform init
+```
+Then apply Terraform
+```
+terraform apply
+```
+### Reach the Kubernetes service from outside the cluster
+
+```
+minikube service front-end-service --url
+```
+Then use this url in a Web browser.
+### Destroy resources
+Finally use
+```
+terraform destroy
+```
+
