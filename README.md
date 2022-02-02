@@ -25,8 +25,15 @@ The main objective of this project is to compare two uses of Kubernetes: pure Ku
 
 Lets have a look at a Kubernetes configuration file: https://github.com/charroux/CodingWithKubernetes/blob/master/front-back-app.yml
 
-A detailled version of this configurattion is given at: https://github.com/charroux/CodingWithKubernetes
+A detailled version of this configuration is given at: https://github.com/charroux/CodingWithKubernetes
 
 ### Kubernetes throwgh Terraform
 
 The same Kubernetes deployment can be achieved using Terraform: https://github.com/charroux/TerraformKubernetes/blob/master/main.tf
+
+A Kuberntes provider must be set in this file:
+```
+provider "kubernetes" {
+  config_path = "~/.kube/config"
+}
+```
